@@ -20,9 +20,25 @@ const doctorSchema = new mongoose.Schema({
         type: String,
         required: [true, "Country of Residence is required"]
     },
+    hospital:{
+        type: String,
+        required: [false, "Current Hospital if exists"]
+    },
+    department:{
+        type: String,
+        required: [true, "department of consulation"]
+    },
+    orders:{
+        type: String,
+        default: '0'
+    },
     email:{
         type: String,
         required:[true, "email is required"]
+    },
+    picture:{
+        type: String,
+        required:[true, "picture is required"]
     },
     website:{
         type:String,
@@ -35,9 +51,13 @@ const doctorSchema = new mongoose.Schema({
         type: String,
         required:[true, "gender is required"]
     },
+    qualification:[{
+        type: String,
+        required:[false, "qualification degree is required"]
+    }],
     bio:{
         type: String,
-        required:[true, "bio for about 100 words is required"]
+        required:[true, "bio for more than 100 words is required"]
     },
     specialization:{
         type: String,
